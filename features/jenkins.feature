@@ -4,7 +4,7 @@ Scenario: Run aptitude to ensure Jenkins is not installed.
 When I run `aptitude search '^jenkins$'`
 Then it should pass with regexp:
   """
-  p[i] .* jenkins
+  p([i]?) .* jenkins
   """
 
 Scenario: Install Jenkins via puppet

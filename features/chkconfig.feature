@@ -4,7 +4,7 @@ Scenario: Run aptitude to ensure Config is not installed.
 When I run `aptitude search '^chkconfig$'`
 Then it should pass with regexp:
   """
-  p .* chkconfig
+  p([i]?) .* chkconfig
   """
 
 Scenario: Install Config

@@ -4,14 +4,14 @@ Scenario: Run aptitude to ensure Tomcat is not installed.
 When I run `aptitude search '^tomcat6$'`
 Then it should pass with regexp:
   """
-  p[i] .* tomcat6
+  p([i]?) .* tomcat6
   """
 
 Scenario: Run aptitude to ensure Tomcat-admin is not installed.
 When I run `aptitude search '^tomcat6-admin$'`
 Then it should pass with regexp:
   """
-  p[i] .* tomcat6-admin
+  p([i]?) .* tomcat6-admin
   """
 
 Scenario: Install Tomcat via puppet

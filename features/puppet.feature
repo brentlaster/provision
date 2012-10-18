@@ -4,7 +4,7 @@ Scenario: Run aptitude to ensure Puppet is not installed.
 When I run `aptitude search '^puppet$'`
 Then it should pass with regexp:
   """
-  p .* puppet
+  p([i]?) .* puppet
   """
 
 Scenario: Install Puppet-common

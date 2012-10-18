@@ -50,9 +50,9 @@ print "$rc\n";
 
 # Run cucumber jenkins
 
-print "Installing Jenkins\n";
-$rc=`cucumber $homedir/features/jenkins.feature`;
-print "$rc\n";
+# print "Installing Jenkins\n";
+# $rc=`cucumber $homedir/features/jenkins.feature`;
+# print "$rc\n";
 
 # Run cucumber tomcat
 
