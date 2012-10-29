@@ -9,7 +9,13 @@
 # Install Cucumber
 
 print "Creating baseline image for cucumber\n";
-print "Installing Ruby 1.9.1\n";
+print "Installing aptitude";
+$rc=`apt-get -y install aptitude`;
+print "$rc\n"; 
+print "Installing Ruby 1.9.1 dev\n";
+$rc=`apt-get -y install ruby1.9.1-dev`;
+print "$rc\n";
+print "Installing Ruby 1.9.1 \n";
 $rc=`apt-get -y install ruby1.9.1`;
 print "$rc\n";
 print "Installing Rubygems\n";
@@ -37,10 +43,10 @@ close FILE;
 $homedir="/home/nfjsuser/provision";
 
 # Run cucumber chkconfig
-$rc=`cd /home/nfjsuser/cucumber`;
-print "Installing chkconfig\n";
-$rc=`cucumber $homedir/features/chkconfig.feature`;
-print "$rc\n";
+#$rc=`cd /home/nfjsuser/cucumber`;
+#print "Installing chkconfig\n";
+#$rc=`cucumber $homedir/features/chkconfig.feature`;
+#print "$rc\n";
 
 # Run cucumber puppet
 
@@ -53,6 +59,12 @@ print "$rc\n";
 # print "Installing Jenkins\n";
 # $rc=`cucumber $homedir/features/jenkins.feature`;
 # print "$rc\n";
+
+# Run cucumber sonar
+
+print "Installing Sonar\n";
+$rc=`cucumber $homedir/features/sonar.feature`;
+print "$rc\n";
 
 # Run cucumber tomcat
 
