@@ -58,7 +58,7 @@ class sonar {
     group => 'adm',
     mode => 0755,
     notify => Service['sonar'],
-    content => template('/home/nfjsuser/provision/templates/alternate_sonar_startup.sh')
+    content => '/home/nfjsuser/provision/templates/alternate_sonar_startup.sh'
   }
  
 
@@ -68,7 +68,7 @@ class sonar {
     group => 'adm',
     mode => 0755,
     notify => Service['sonar'],
-    content => template('/home/nfjsuser/Downloads/sonar-groovy-plugin-0.6.jar')
+    content => '/home/nfjsuser/Downloads/sonar-groovy-plugin-0.6.jar'
   }
  
   service { 'sonar':
