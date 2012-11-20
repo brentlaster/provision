@@ -39,8 +39,8 @@ class sonar {
 
   
   exec { 'start sonar':
-        require => File['/opt/sonar/bin/alternate_sonar_startup.sh'],
-        path => '/opt/sonar',
+        require => File['/opt/sonar/extensions/plugins/sonar-groovy-plugin-0.6.jar'],
+	path => '/opt/sonar',
         command => '/opt/sonar/bin/alternate_sonar_startup.sh',
   }
   
@@ -61,6 +61,15 @@ class sonar {
     content => template('/home/nfjsuser/provision/templates/alternate_sonar_startup.sh')
   }
  
+
+  file { '/opt/sonar/extensions/plugins/sonar-groovy-plugin-0.6.jar':
+    require => File['/opt/sonar/bin/alternate_sonar_startup.sh'],
+    owner => 'sonar',
+    group => 'adm',
+    mode => 0755,
+    notify => Service['sonar'],
+    content => template('/home/nfjsuser/Downloads/sonar-groovy-plugin-0.6.jar')
+  }
  
   service { 'sonar':
     ensure => running,
