@@ -60,12 +60,6 @@ print "$rc\n";
 # $rc=`cucumber $homedir/features/jenkins.feature`;
 # print "$rc\n";
 
-# Run cucumber sonar
-
-print "Installing Sonar\n";
-$rc=`cucumber $homedir/features/sonar.feature`;
-print "$rc\n";
-
 # Run cucumber tomcat
 
 print "Installing Tomcat\n";
