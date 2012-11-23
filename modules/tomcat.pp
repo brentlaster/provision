@@ -34,6 +34,16 @@ class tomcat6 {
      content => template('/home/nfjsuser/provision/templates/server.xml.nfjs'),
   }
  
+	
+  file {'/var/lib/tomcat6':
+     require => Package['tomcat6'],
+     ensure => directory,
+     owner => tomcat6,
+     group => tomcat6,
+     mode => 755,
+  }
+
+
   service { 'tomcat6':
     ensure => running,
     require => Package['tomcat6'],
