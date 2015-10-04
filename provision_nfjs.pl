@@ -18,9 +18,6 @@ print "$rc\n";
 print "Installing Ruby 1.9.1 \n";
 $rc=`apt-get -y install ruby1.9.1`;
 print "$rc\n";
-print "Installing Rubygems\n";
-$rc=`apt-get -y install rubygems`;
-print "$rc\n";
 print "Installing Cucumber\n";
 $rc=`gem install cucumber`;
 print "$rc\n";
@@ -40,13 +37,13 @@ print FILE "  \@aruba_timeout_seconds = 460\n";
 print FILE "end\n";
 close FILE;
 
-$homedir="/home/nfjsuser/provision";
+$homedir="/home/diyuser/provision";
 
-# Run cucumber chkconfig
-#$rc=`cd /home/nfjsuser/cucumber`;
-#print "Installing chkconfig\n";
-#$rc=`cucumber $homedir/features/chkconfig.feature`;
-#print "$rc\n";
+# Run cucumber sysv-rc-conf
+$rc=`cd /home/diyuser/cucumber`;
+print "Installing sysv-rc-conf\n";
+$rc=`cucumber $homedir/features/sysv-rc-conf.feature`;
+print "$rc\n";
 
 # Run cucumber puppet
 
@@ -56,9 +53,9 @@ print "$rc\n";
 
 # Run cucumber jenkins
 
-# print "Installing Jenkins\n";
-# $rc=`cucumber $homedir/features/jenkins.feature`;
-# print "$rc\n";
+print "Installing Jenkins\n";
+$rc=`cucumber $homedir/features/jenkins.feature`;
+print "$rc\n";
 
 # Run cucumber tomcat
 
