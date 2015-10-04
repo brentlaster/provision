@@ -24,14 +24,14 @@ class tomcat6 {
     owner => 'root',
     require => Package['tomcat6'],
     notify => Service['tomcat6'],
-    content => template('/home/diyuser/provision/templates/tomcat-users.xml.nfjs')
+    content => template('/home/diyuser/provision/templates/tomcat-users.xml.diy')
   }
  
   file { '/etc/tomcat6/server.xml':
      owner => 'root',
      require => Package['tomcat6'],
      notify => Service['tomcat6'],
-     content => template('/home/diyuser/provision/templates/server.xml.nfjs'),
+     content => template('/home/diyuser/provision/templates/server.xml.diy'),
   }
  
 	

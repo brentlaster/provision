@@ -2,7 +2,7 @@ package { "jenkins":
     ensure => "installed"
 }
 file { "/var/lib/jenkins/plugins":
-  source => "/home/nfjsuser/Jenkins/plugins",
+  source => "/home/diyuser/Jenkins/plugins",
   recurse => true,
 }
 service { "jenkins":
