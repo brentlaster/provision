@@ -9,7 +9,7 @@ Then it should pass with regexp:
 
 Scenario: Install Sonar via puppet
 
-When I run `puppet apply '/home/nfjsuser/provision/modules/sonar.pp'`
+When I run `puppet apply '/home/diyuser/provision/modules/sonar.pp'`
 Then it should pass with regexp:
  """
  notice: Finished catalog run

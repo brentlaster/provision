@@ -12,7 +12,7 @@ Scenario: Install Puppet-common
 When I run `apt-get -y install puppet-common`
 Then it should pass with regexp:
  """
- ldconfig deferred processing now taking place
+ Setting up puppet-common
  """
 
 Scenario: Ensure Puppet-Common installed
@@ -23,11 +23,4 @@ Then it should pass with regexp:
  i .* puppet-common
  """
 
-Scenario: Add puppet to startup
-
-When I run `chkconfig --list puppet-common`
-Then it should pass with regexp:
- """
- on
- """
 

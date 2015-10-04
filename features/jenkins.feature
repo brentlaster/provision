@@ -9,10 +9,10 @@ Then it should pass with regexp:
 
 Scenario: Install Jenkins via puppet
 
-When I run `puppet apply '/home/nfjsuser/provision/modules/jenkins.pp'`
+When I run `puppet apply '/home/diyuser/provision/modules/jenkins.pp'`
 Then it should pass with regexp:
  """
- notice: Finished catalog run
+ Notice: Finished catalog run
  """
 When I run `aptitude search '^jenkins$'`
 Then it should pass with regexp:
@@ -20,7 +20,7 @@ Then it should pass with regexp:
  i .* jenkins
  """
 
-When I run `chkconfig --list puppet`
+When I run `sysv-rc-conf --list puppet`
 Then it should pass with regexp:
  """
  on
