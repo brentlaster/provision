@@ -1,7 +1,7 @@
 class tomcat6 {
  
   $tomcat_port = 8090
-  $tomcat_password = 'nfjsuser'
+  $tomcat_password = 'diyuser'
  
   notice("Setting up http://$hostname:$tomcat_port/")
  
@@ -24,14 +24,14 @@ class tomcat6 {
     owner => 'root',
     require => Package['tomcat6'],
     notify => Service['tomcat6'],
-    content => template('/home/nfjsuser/provision/templates/tomcat-users.xml.nfjs')
+    content => template('/home/diyuser/provision/templates/tomcat-users.xml.nfjs')
   }
  
   file { '/etc/tomcat6/server.xml':
      owner => 'root',
      require => Package['tomcat6'],
      notify => Service['tomcat6'],
-     content => template('/home/nfjsuser/provision/templates/server.xml.nfjs'),
+     content => template('/home/diyuser/provision/templates/server.xml.nfjs'),
   }
  
 	
