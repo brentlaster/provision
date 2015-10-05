@@ -1,19 +1,18 @@
+
 class artifactory {
  
-  $artifactory_port = 8081
-  $artifactory_password = 'diyuser'
- 
-  notice("Setting up http://$hostname:$artifactory_port/")
- 
-  Package { # defaults
-    ensure => installed,
+  notice("Starting artifactory on port 8083")
+  
+  exec {"start artifactory":	
+        command => 'artifactory.sh start',
+	cwd => "/opt/artifactory-oss-4.1.3",
+	path => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/opt/artifactory-oss-4.1.3/bin:",
   }
- 
- 
 
-  service { 'artifactory':
+
+  service { "artifactory":
     ensure => running,
-    require => Package['artifactory'],
+    require => Exec["start artifactory"],
   }
  
 }
