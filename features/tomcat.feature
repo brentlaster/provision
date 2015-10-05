@@ -18,9 +18,10 @@ Scenario: Install Tomcat via puppet
 
 When I run `puppet apply '/home/diyuser/provision/modules/tomcat.pp'`
 Then it should pass with regexp:
-  """
-  .*Notice: Finished catalog run.*
-  """
+ """
+ Notice: Finished catalog run
+ """
+
 
 Scenario: Run aptitude to ensure Tomcat is installed.
 When I run `aptitude search '^tomcat6$'`
