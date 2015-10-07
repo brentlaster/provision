@@ -20,7 +20,7 @@ Then it should pass with regexp:
  i .* jenkins
  """
 
-When I run `sysv-rc-conf --list puppet`
+When I run `sysv-rc-conf --list jenkins`
 Then it should pass with regexp:
  """
  on

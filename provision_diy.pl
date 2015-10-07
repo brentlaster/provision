@@ -26,18 +26,6 @@ print "Installing Aruba\n";
 $rc=`gem install aruba`;
 print "$rc\n";
 
-# Create directory structure for cucumber
-$rc=`mkdir -p features/support`;
-$rc=`mkdir -p features/step_definitions`;
-
-open FILE, ">features/support/env.rb" or die $!;
-print FILE "require 'aruba/cucumber'\n";
-print FILE "Before do\n";
-print FILE "# Set a longer timeout for aruba\n";
-print FILE "  \@aruba_timeout_seconds = 460\n";
-print FILE "end\n";
-close FILE;
-
 $homedir="/home/diyuser/provision";
 
 # Run cucumber sysv-rc-conf
